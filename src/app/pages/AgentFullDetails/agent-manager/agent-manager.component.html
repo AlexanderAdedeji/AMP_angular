@@ -1,0 +1,74 @@
+<div class="card animate__animated animate__fadeIn" >
+  <div class="card-header">
+    <div class="card-title">
+      <h4 class="card-title">{{agentName}}'s Managers</h4>
+      <button type="submit"  class="btn btn-success btn-round" (click)="createANewManagerLink()" >
+        Create Manager
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <div>
+      <table class="table  text-center">
+        <thead class="text-primary ">
+          <th>
+           Full Name
+
+          </th>
+          <th>
+           Email
+          </th>
+          <th>
+           Phone No
+          </th>
+          <th>Active</th>
+          <th>
+          Action
+          </th>     
+        </thead>
+        <tbody>     
+          <tr *ngFor='let manager of AgentManagers'>
+            <td>
+              {{ manager.first_name}} {{manager.last_name}}
+            </td>
+            <td>
+              {{manager.email}}
+            </td>
+            <td>
+              {{manager.phone}}
+            </td>
+            <td *ngIf="manager.is_active">
+              Yes
+            </td>
+            <td *ngIf="!manager.is_active">
+              No
+            </td>
+            <!-- <td >
+              {{manager.lasrra_id}}
+            </td> -->
+            <td class="">
+             <ul class="navbar-nav">
+              <li class="nav-item btn-rotate" ngbDropdown placement="top-right">
+                  <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
+                    <i class="nc-icon nc-bell-55"></i>
+                  </a>
+                  <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-left">
+                    <!-- <a ngbDropdownItem [routerLink]="['/AMP/profile']">edit</a> -->
+                    <a ngbDropdownItem (click)='viewUser(manager.id)'>View</a>
+                    <a ngbDropdownItem *ngIf='!manager.is_active' (click)="activateUser(manager)">Activate</a>
+                    <a ngbDropdownItem *ngIf='manager.is_active'(click)="deactivateUser(manager)">Deactivate</a>
+                    <a ngbDropdownItem (click)="resetPassword(manager.email)">Reset Password</a>
+                  </div>
+                </li>
+             </ul>
+            </td>
+          </tr>
+
+
+      
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+

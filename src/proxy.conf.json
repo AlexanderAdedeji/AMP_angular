@@ -1,0 +1,20 @@
+{
+    "/test2/*": {
+      "target": "",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/test2": ""
+      }
+    },
+    "/urlTest/*": {
+      "target": "http://172.16.2.74/AMPService/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/urlTest": ""
+      }
+    }
+  }

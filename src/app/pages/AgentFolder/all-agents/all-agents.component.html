@@ -1,0 +1,95 @@
+<div class="card animate__animated animate__fadeIn" >
+  <div class="card-header">
+    <div class="header-container row">
+      <div class="col-md-5 card-box-1">
+        <h3 class="card-title mt-5 mx-3">All Agents</h3>
+        <div class="create-button mt-2">
+          <button type="submit"  class="btn btn-success p-2  mt-5" (click)="createANewUserLink()" >
+            <i class="nc-icon nc-simple-add"></i>
+          </button>
+        </div>
+      </div>
+        <div class="offset-md-3 col-md-4 card-box-2">
+         
+        
+          <div class="card-search">
+            <form>
+              <div class="input-group no-border">
+                <input type="text" value="" name='email' class="form-control" placeholder="Search..." [(ngModel)]="searchedItem">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <button 
+                    style="border:none"
+                    (click)="search()">
+                      <i class="nc-icon nc-zoom-split"></i>
+                    </button>
+
+                    <!-- &nbsp;
+                    &nbsp;
+                    &nbsp; -->
+                    <!-- <button 
+
+                    title="Add Agent"
+                    class="p-2"
+                    style="border:none; background-color: #4d4d4d; border-radius: 3px;color:white; ;"   
+                    (click)="createANewUserLink()">
+                    <i class="nc-icon nc-simple-add mt-2"></i>
+                    </button> -->
+                    
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="create-button">
+                <button type="button"  class="btn btn-outline-success btn-round mt-5" (click)="createANewUserLink()" >
+                  <i class="nc-icon nc-simple-add"></i>
+                </button> -->
+              <!-- </div> -->
+            </form>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="card-body">
+      <div class="table-responsive">
+        <table class="table text-left table-hover ">
+          <thead class=" text-primary">
+            <th>
+              S/N
+            </th>
+            <th>    
+             Name
+            </th>
+            <th>
+             Email
+            </th>
+            <th>
+             Address
+            </th>
+      
+          </thead>
+          
+            <tbody>
+              <tr *ngFor="let agent of AllAgentsData; let i=index;" (click)="eachAgentDetails(agent)">
+                <td>
+                  {{i +1 }}
+                </td>
+                <td>
+                  {{agent.name}} 
+                </td>
+                <td>
+                  {{agent.email}}
+                </td>
+                <td>   
+                  {{agent.address}}
+                </td>
+
+                
+              </tr>         
+            </tbody>
+   
+        
+          
+        </table>
+      </div>
+    </div>
+</div>

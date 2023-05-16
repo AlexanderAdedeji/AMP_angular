@@ -1,0 +1,41 @@
+<div class="card card-user">
+  <div class="card-header">
+    <h5 class="card-title">Create New Devices</h5>
+  </div>
+  <div class="card-body">
+    <form [formGroup]="CreateNewDeviceForm" (ngSubmit)="createANewDevice(CreateNewDeviceForm.value)">
+      <div class="row">
+        <div class="col-md pr-1">
+          <div class="form-group">
+            <label for="name">Device Name</label>
+            <input id="name" type="text" formControlName="name" class="form-control" placeholder="Device name">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md pr-1">
+          <div class="form-group">
+            <label for="macid">Mac Id</label>
+            <input id="macid" type="text" formControlName="mac_id" class="form-control" placeholder="Mac id">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="update ml-auto mr-auto">
+
+          <button type="submit" [disabled]="!CreateNewDeviceForm.value.mac_id || !CreateNewDeviceForm.value.name"
+            class="btn btn-success btn-round">
+            <i class="nc-icon nc-globe text-default"></i>
+            Create Device</button>
+
+          <button type="button" class="btn btn-outline-success btn-round" (click)='Cancel()'>
+            <i class="nc-icon nc-simple-remove text-default"></i>
+
+            Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

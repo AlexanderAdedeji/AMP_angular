@@ -1,0 +1,9 @@
+mat-icon{
+    position: relative;
+    color: #6BD098;
+    font-size: 3rem;
+}
+
+.card{
+    cursor: pointer;
+}

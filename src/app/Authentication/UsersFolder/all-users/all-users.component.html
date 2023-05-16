@@ -1,0 +1,104 @@
+<div class="card animate__animated animate__fadeIn" >
+  <div class="card-header">
+    <div class="card-title">
+      <h3>All Users</h3>
+    </div>
+    <div>
+      <form>
+        <div class="input-group no-border">
+          <input type="text" value="" name='email' class="form-control" placeholder="Search..." [(ngModel)]="searchedItem">
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <button 
+              style="border:none"
+              (click)="search()">
+                <i class="nc-icon nc-zoom-split"></i>
+              </button>
+              
+            </div>
+          </div>
+        </div>
+      </form>
+      </div>
+  </div>
+  <div class="card-body">  
+      <table class="table table-hover text-center">
+        <thead class=" text-primary">
+          <th>
+            S/N
+          </th>
+          <th>
+           Name
+          </th>
+
+          <th>
+            Role
+          </th>
+
+          <th>
+           Agent
+          </th>
+          <th>
+           Active
+          </th>
+
+          <th>
+          Action
+          </th>
+          
+        </thead>
+        <tbody>
+          <tr  *ngFor="let user of AllUsersDetails;let i=index">
+            <td>
+              {{ i + 1}}
+            </td>
+            <td>
+              {{ user.first_name }} {{ user.last_name }}
+            </td>
+
+            <td>
+              {{user.user_type.name}}
+            </td>
+            <!-- <td>
+              {{ user.phone }}
+            </td> -->
+
+            <td *ngIf="user.agent_name">
+              {{user.agent_name}}
+            </td>
+            <td *ngIf="!user.agent_name">
+              SuperUser
+            </td>
+            <td *ngIf="user.is_active">
+              Yes
+            </td>
+            <td *ngIf="!user.is_active">
+              No
+            </td>
+<!-- 
+            <td >
+              {{ user.lasrra_id}}
+            </td> -->
+            <td class="">
+             <ul class="navbar-nav">
+              <li class="nav-item btn-rotate" ngbDropdown placement="top-left">
+                  <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
+                    <i class="nc-icon nc-bell-55"></i>
+                  </a>
+                  <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-left">
+                    <a ngbDropdownItem (click)='viewUser(user.id)'>View</a>
+                    <a ngbDropdownItem *ngIf='!user.is_active' (click)="activateUser(user)">Activate</a>
+                    <a ngbDropdownItem *ngIf='user.is_active'(click)="deactivateUser(user)">Deactivate</a>
+                    <a ngbDropdownItem (click)="resetPassword(user.email)">Reset Password</a>
+                  </div>
+                </li>
+             </ul>
+            </td>
+            </tr>
+    
+        </tbody>
+      </table>
+
+  </div>
+</div>
+

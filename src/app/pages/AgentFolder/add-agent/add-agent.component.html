@@ -1,0 +1,42 @@
+<div class="card card-user animate__animated animate__fadeIn" >
+    <div class="card-header">
+      <h5 class="card-title">Create A New Agent</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="CreateNewAgentForm" (ngSubmit)="createANewAgent(CreateNewAgentForm.value)">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Company Name</label>
+              <input type="text" formControlName="name" class="form-control" placeholder="Name">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 pr-1">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" formControlName="email" class="form-control" placeholder="Email">
+              </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" formControlName="address" class="form-control" placeholder="Address" >
+            </div>
+          </div>
+        </div>    
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+              
+            <button type="submit"  class="btn btn-success btn-round">
+                <i class="nc-icon nc-globe text-default"></i>
+                Create Agent</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

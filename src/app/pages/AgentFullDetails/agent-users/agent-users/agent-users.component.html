@@ -1,0 +1,73 @@
+<div class="card" >
+    <div class="card-header">
+      <div class="card-title">
+        <h4 class="card-title">{{agentName}}'s Officers</h4>
+        <button type="submit"  class="btn btn-success btn-round" (click)="createANewOfficerLink()" >
+          Create Officer
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <div>
+        <table class="table">
+          <thead class=" text-primary">
+            <th>
+             Full Name
+            </th>
+            <th>
+             Email
+            </th>
+            <th>
+             Phone No
+            </th>
+            <th>
+              Active
+            </th>
+            <th class="text-right">
+            Action
+            </th>
+            
+          </thead>
+          <tbody>
+           
+            <tr *ngFor='let officer of AgentOfficers'>
+              <td>
+                {{ officer.first_name}} {{officer.last_name}}
+              </td>
+              <td>
+                {{officer.email}}
+              </td>
+              <td>
+                {{officer.phone}}
+              </td>
+              <td *ngIf="officer.is_active">
+                Yes
+              </td>
+              <td *ngIf="!officer.is_active">
+                No
+              </td>
+
+              <td class="">
+               <ul class="navbar-nav">
+                <li class="nav-item btn-rotate" ngbDropdown placement="top-right">
+                    <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
+                      <i class="nc-icon nc-bell-55"></i>
+                    </a>
+                    <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-right">
+                      <!-- <a ngbDropdownItem [routerLink]="['/AMP/profile']">edit</a> -->
+                      <a ngbDropdownItem (click)='viewUser(officer.id)'>View</a>
+                      <a ngbDropdownItem *ngIf='!officer.is_active' (click)="activateUser(officer)">Activate</a>
+                      <a ngbDropdownItem *ngIf='officer.is_active'(click)="deactivateUser(officer)">Deactivate</a>
+                      <a ngbDropdownItem (click)="resetPassword(officer.email)">Reset Password</a>
+                    </div>
+                  </li>
+               </ul>
+              </td>
+            </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+

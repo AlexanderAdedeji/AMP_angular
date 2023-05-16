@@ -1,0 +1,47 @@
+<div class="card card-user" >
+    <div class="card-header">
+      <h5 class="card-title">UnAssign User to  Device</h5>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="unAssigneEmployeeFromDeviceForm" (ngSubmit)="unAssigneEmployeeFromDevice(unAssigneEmployeeFromDeviceForm.value)">
+        <div class="row" hidden>
+          <div class="col-md pr-1">
+            <div class="form-group">
+                <label for="macid">Mac Id</label>
+                <input id="macid" disabled type="mac_id" class="form-control" value="{{Device?.mac_id}}">
+              </div>
+          </div>
+        </div>  
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                  <span class="material-icons">
+                      my_location
+                      </span>
+                <label>De-Assign User</label>
+                <select class="form-control" formControlName="employee_id" >
+                  <option *ngFor='let employee of AssignedUsers' [value]="employee.id">
+                    {{ employee.first_name}} {{employee.last_name}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div> 
+
+       
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+              
+            <button type="submit" [disabled]="!unAssigneEmployeeFromDeviceForm.value.employee_id"    class="btn btn-success btn-round">
+                <i class="nc-icon nc-globe text-default"></i>
+                UnAssign User
+          </button>
+          <button type="button" (click)='Cancel()' class="btn btn-outline-success btn-round">
+              <i class="nc-icon nc-simple-remove text-default"></i>
+              Cancel
+        </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

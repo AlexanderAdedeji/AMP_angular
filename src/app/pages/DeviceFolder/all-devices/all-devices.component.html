@@ -1,0 +1,118 @@
+<div class="card animate__animated animate__fadeIn" >
+      <div class="card-header">
+        <div class="header-container  row">
+          <div class="col-md-5 card-box-1">
+            <h3 class="card-title mt-5 mx-3">All Devices</h3>
+            <div class="create-button mt-2">
+              <button *ngIf='isManager' type="submit"  class="btn btn-success p-2  mt-5" (click)="CreateDevice()" >
+                <i class="nc-icon nc-simple-add"></i>
+              </button>
+            </div>
+          </div>
+            <div class="offset-md-3 col-md-4 card-box-2">
+             
+              <div class="card-search">
+                <form>
+                  <div class="input-group no-border">
+                    <input type="text" value="" name='email' class="form-control" placeholder="Search..." [(ngModel)]="searchedItem">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <button 
+                        style="border:none"
+                        (click)="search()">
+                          <i class="nc-icon nc-zoom-split"></i>
+                        </button>         
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+        </div>
+  <div class="card-body">
+      <div class="">
+        <table class="table table-hover text-left">
+          <thead class=" text-primary">
+            <th>
+             
+             S/N
+            </th>
+            <th>
+             Name
+            </th>
+            <th *ngIf=isSuperUser>
+             Agent
+            </th>
+            <th>
+             Active
+            </th>
+            <th>
+                No of Users
+            </th>
+            <th class="">
+            Action
+            </th>
+            
+          </thead>
+          
+            <tbody >  
+              <tr *ngFor='let device of AllDevicesData;
+               let i=index;'
+               >
+                <td> 
+                {{i+1}}
+                </td>
+                <td>
+                  {{device.name}}
+                </td>
+                <td *ngIf=isSuperUser>
+                  {{ device.agent_name}}
+                </td>
+                <td *ngIf="device.is_active">
+                  Yes
+                </td>
+                <td *ngIf="!device.is_active">
+                  No
+                </td>
+                <td >
+                  {{ device.assigned_users.length}}               
+                </td>
+                <td class="">
+                  <ul class="navbar-nav">
+                    <li *ngIf='i > 2 ' class="nav-item btn-rotate" ngbDropdown placement="top-right">
+                        <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
+                          <i class="nc-icon nc-bell-55"></i>
+                        </a>
+                        <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-down">
+                          <!-- <a ngbDropdownItem  (click)="updateDevice(device.id, device.mac_id)">Update</a> -->
+                          <a ngbDropdownItem  *ngIf='!device.is_active' (click)="activateDevice(device.id)">Activate</a>
+                          <a ngbDropdownItem  *ngIf='device.is_active' (click)="deactivateDevice(device.id)">Deactivate</a>
+                          <a ngbDropdownItem *ngIf='!isSuperUser && device.is_active' (click)="checkUser(device, 'a')" >Assign User</a>
+                          <a ngbDropdownItem  *ngIf='!isSuperUser && device.is_active' (click)="checkUser(device, 'd')" >Unassign User</a>
+                        </div>
+                      </li>
+                    <li *ngIf='2 >= i ' class="nav-item btn-rotate" ngbDropdown placement="top-right">
+                        <a class="nav-link" ngbDropdownToggle id="navbarDropdownMenuLink" >
+                          <i class="nc-icon nc-bell-55"></i>
+                        </a>
+                        <div ngbDropdownMenu aria-labelledby="navbarDropdownMenuLink" class="dropdown-menu dropdown-menu-up">
+                          <!-- <a ngbDropdownItem (click)="updateDevice(device.id)">Update</a> -->
+                          <a ngbDropdownItem *ngIf='!device.is_active' (click)="activateDevice(device.id)">Activate</a>
+                          <a ngbDropdownItem *ngIf='device.is_active' (click)="deactivateDevice(device.id)">Deactivate</a>
+                          <a ngbDropdownItem *ngIf='!isSuperUser && device.is_active' (click)="checkUser(device, 'a')" >Assign User</a>
+                          <a ngbDropdownItem  *ngIf='!isSuperUser && device.is_active' (click)="checkUser(device, 'd')" >Unassign User</a>
+                        </div>
+                      </li>
+                   </ul>
+                </td>
+              </tr>
+         
+          
+            </tbody>
+       
+        
+          
+        </table>
+      </div>
+    </div>
+</div>

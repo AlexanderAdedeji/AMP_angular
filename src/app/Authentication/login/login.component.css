@@ -1,0 +1,177 @@
+/* body {
+    color: #000;
+    overflow-x: hidden;
+    height: 100%;
+    background-image: linear-gradient(to right, #caff4f, #00f9ec71);
+    background-repeat: no-repeat
+} */
+/* .auth-container{
+    overflow-x: hidden;
+    overflow-y: hidden;
+} */
+
+input,
+textarea {
+    background-color: #f0f0f0;
+    border-radius: 50px !important;
+    padding: 12px 15px 12px 15px !important;
+    width: 100%;
+    box-sizing: border-box;
+    border: none !important;
+    border: 1px solid #F3E5F5 !important;
+    font-size: 16px !important;
+    color: #000 !important;
+    font-weight: 400
+}
+
+input:focus,
+textarea:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #00f9ec71 !important;
+    outline-width: 0;
+    font-weight: 400
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+/* .card {
+    border-radius: 0;
+    border: none
+} */
+
+.card2{
+    display: grid;
+    align-items: center;
+    
+}
+
+/* .card2 {
+    width: 60%;
+    background-image: linear-gradient(to right,  #caff4f, #00f9ec71)
+} */
+
+.card1 {
+    width: 70%;
+    height: 100vh;
+    /* min-height: 200% !important; */
+  
+    background: url('assets/img/lag2.jpg') no-repeat; 
+    background-size: cover;
+    /* object-fit: cover; */
+}
+
+#logo {
+    width: 70px;
+    height: 60px
+}
+
+.heading {
+    margin-bottom: 60px !important
+}
+
+::placeholder {
+    color: #000 !important;
+    opacity: 1
+}
+
+:-ms-input-placeholder {
+    color: #000 !important
+}
+
+::-ms-input-placeholder {
+    color: #000 !important
+}
+
+.form-control-label {
+    font-size: 12px;
+    margin-left: 15px
+}
+
+.msg-info {
+    padding-left: 15px;
+    margin-bottom: 30px
+}
+
+.btn-color {
+    border-radius: 50px;
+    color: #fff;
+    background-image: linear-gradient(to right,  #00f9ec71, #caff4f);
+    padding: 15px;
+    cursor: pointer;
+    border: none !important;
+    margin-top: 40px
+}
+
+.btn-color:hover {
+    color: #fff;
+    background-image: linear-gradient(to right, #00f9ec71, #caff4f)
+}
+
+.btn-white {
+    border-radius: 50px;
+    color: #00f9ec71;
+    background-color: rgb(255, 255, 255);
+    padding: 8px 40px;
+    cursor: pointer;
+    border: 2px solid #00f9ec71 !important
+}
+
+.btn-white:hover {
+    color: #fff;
+    background-image: linear-gradient(to right, #00f9ec71, #caff4f)
+}
+
+a {
+    color: #000
+}
+
+a:hover {
+    color: #000
+}
+
+.bottom {
+    width: 100%;
+    margin-top: 50px !important
+}
+
+.sm-text {
+    font-size: 15px
+}
+
+@media screen and (max-width: 992px) {
+    .card1 {
+        width: 100%;
+        padding: 40px 30px 10px 30px
+    }
+
+    .card2 {
+        width: 100%
+    }
+
+    .right {
+        margin-top: 100px !important;
+        margin-bottom: 100px !important
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        padding: 10px !important
+    }
+
+    .card2 {
+        padding: 50px
+    }
+
+    .right {
+        margin-top: 50px !important;
+        margin-bottom: 50px !important
+    }
+}
